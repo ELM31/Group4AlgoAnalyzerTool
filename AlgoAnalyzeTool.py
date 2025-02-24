@@ -4,81 +4,90 @@ import quickSort
 import radixSort
 import linearSearchAlgoAdv
 import time
-import random
+import random 
 
-###################
-### ALGORITHMS ####
-###################
+#Introduction to the program and ask user to check which algorithms they'd like to compare 
+print("Hello welcome to Algorithm Analyzer Tool\nPlease indicate which algorithms you'd like to sort. 0 or 1\n")
 
-###### BUBBLE SORT ###### 
-
-#take user input 
-num_students = int(input("ENTER NUMBER OF STUDENTS: "))
-students = []
-for _ in range(num_students):
-    name = input("Enter Student name: ")
-    score = int(input(f"Enter {name}'s Score: "))
-    students.append((name, score))
-bubbleSort.bubble_sort(students)
-print("Sorted students by score:", students)
-
-#measrure execution time 
-start_time = time.time()
-bubbleSort.bubble_sort(students)
-end_time = time.time()
-
-print("Sorted students by score:", students)
-print(f"Execution time: {end_time  - start_time:.6f} seconds")
-#time complexity for this algo would be O(n^2)
-
-
-###### MERGE SORT ######
-
-#Take user input 
-num_flights = int(input("Enter number of flights: "))
-flights = []
-
-for _ in range(num_flights):
-    flight_no = input("Enter the flight number: ")
-    dep_time = int(input(f"Enter the deptrue time for {flight_no}: "))
-    flights.append((flight_no, dep_time))
-#measure the execution time 
-start_time = time.time()
-mergeSort.merge_sort(flights)
-end_time = time.time()
-
-print("Flights sorted by depature time: ", flights)
-print(f"Execution tim: {end_time - start_time:.6f} seconds ")
-
-
-###### QUICK SORT ######
-#Generate random Numbers 
-random_list = [random.randint(10, 9999) for _ in range(10)]
-
-
-print("Orginal Array =: ", random_list)
-sorted_arr = quickSort.quick_sort(random_list)
-print("Sorted Array =: ", sorted_arr)
+checkBS = int(input("Bubble Sort: "))
+checkMS = int(input("Merge Sort: "))
+checkQS = int(input("Quick Sort: "))
+checkRS = int(input("Radix Sort: "))
+checkLS = int(input("Linear Search: "))
 
 
 
-###### RADIX SORT ######
-#generate a random list of numbers 
-random_list = [random.randint(10, 9999) for _ in range (10)]
 
-print("Original Array:", random_list)
-sorted_arr = radixSort.radix_sort(random_list)
-print("Sorted Array:", sorted_arr)
+####################
+#### ALGORITHMS ####
+####################
 
+if checkBS == 1:
+    ###### BUBBLE SORT ###### 
 
-###### LINEAR SEARCH ######
-user_input = input("Enter number separated by spaces: ")
-L = list(map(int, user_input.split()))
+    #take user input 
+    num_arr = int(input("ENTER NUMBER OF SCORES: "))
+    arr = []
+    for _ in range(num_arr):
+        score = int(input(f"Enter Scores: "))
+        arr.append(score)
 
-T = int(input("Enter the target element to search: "))
+    #indivdual arrays for each sorting algorithm 
+    arrBS = arr #Bubble sort 
+    arrMS = arr #Merge sort
+    arrQS = arr #Quick sort
+    arrRS = arr #Radix sort
+    arrLS = arr #Linear search 
 
-#call LinearSearch function function
-result = linearSearchAlgoAdv.linearSearch(L, T)
+    #measrure execution time 
+    start_time = time.time()
+    bubbleSort.bubble_sort(arrBS)
+    end_time = time.time()
 
-#display
-print(f"The number was {T} found at the index {result}")
+    print("Sorted Array:", arrBS)
+    print(f"Execution time FOR  BUBBLE SORT: {end_time  - start_time:.6f} seconds")
+    #time complexity for this algo would be O(n^2)
+
+if checkMS == 1:
+    ###### MERGE SORT ######
+
+    #measure the execution time 
+    start_time = time.time()
+    mergeSort.merge_sort(arrMS)
+    end_time = time.time()
+
+    print("Sorted Array: ", arrMS)
+    print(f"Execution time FOR MERGE SORT: {end_time - start_time:.6f} seconds ")
+
+if checkQS == 1:
+    ###### QUICK SORT ######
+
+    start_time = time.time()
+    sorted_arr = quickSort.quick_sort(arrQS)
+    end_time = time.time()
+    print("Sorted Array: ", arrQS)
+    print(f"Execution time FOR QUICK SORT: {end_time - start_time:.6f} seconds ")
+
+if checkRS == 1:
+    ###### RADIX SORT ######
+
+    start_time = time.time()
+    sorted_arr = radixSort.radix_sort(arrRS)
+    end_time = time.time()
+    print("Sorted Array:", sorted_arr)
+    print(f"Execution time FOR RADIX SORT: {end_time - start_time:.6f} seconds ")
+
+if checkLS == 1:
+    ###### LINEAR SEARCH ######
+    L = arrLS
+
+    T = random.randint(0, num_arr-1) 
+
+    #call LinearSearch function function
+    result = linearSearchAlgoAdv.linearSearch(L, T)
+
+    #display
+    start_time = time.time()
+    print(f"The number was {T} found at the index {result}")
+    end_time = time.time()
+    print(f"Execution time FOR LINEAR SEARCH: {end_time - start_time:.6f} seconds ")
