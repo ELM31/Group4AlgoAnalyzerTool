@@ -11,7 +11,7 @@ def merge_sort(flights):
         i = j = k = 0 
 
         while i <len(left_half) and j < len(right_half):
-            if left_half[i][1] < right_half[j][1]:
+            if left_half[i] < right_half[j]:
                 flights[k] = left_half[i]
                 i+= 1
             else: 
