@@ -7,6 +7,7 @@ import time
 import random
 from tkinter import *
 from tkinter import messagebox
+import AlgoVisual # This is the visualization file
 
 ##################
 #####   GUI  #####
@@ -139,6 +140,7 @@ generate_button.pack(pady=20)
 # Introduction to the program 
 print("Hello welcome to Algorithm Analyzer Tool")
 
+
 ####################
 #### ALGORITHMS ####
 ####################
@@ -152,6 +154,10 @@ def analyze_algorithms():
         arrRS = arr[:]  # Radix sort
         arrLS = arr[:]  # Linear search
 
+        # Lists for the bar plot data
+        algorithms = [] # X-axis
+        exeTime = [] # Y-axis
+
         if checkBS.get() == 1:
             ###### BUBBLE SORT ######
             start_time = time.time()
@@ -160,6 +166,9 @@ def analyze_algorithms():
 
             print("Sorted Array (Bubble Sort):", arrBS)
             print(f"Execution time FOR BUBBLE SORT: {end_time - start_time:.6f} seconds")
+
+            algorithms.append('Bubble Sort') # Adds value to x-axis
+            exeTime.append(end_time - start_time) # Adds value to y-axis
 
         if checkMS.get() == 1:
             ###### MERGE SORT ######
@@ -170,14 +179,20 @@ def analyze_algorithms():
             print("Sorted Array (Merge Sort):", arrMS)
             print(f"Execution time FOR MERGE SORT: {end_time - start_time:.6f} seconds")
 
+            algorithms.append('Merge Sort')
+            exeTime.append(end_time - start_time)
+
         if checkQS.get() == 1:
             ###### QUICK SORT ######
             start_time = time.time()
             sorted_arr = quickSort.quick_sort(arrQS)
             end_time = time.time()
-
+        
             print("Sorted Array (Quick Sort):", sorted_arr)
             print(f"Execution time FOR QUICK SORT: {end_time - start_time:.6f} seconds")
+
+            algorithms.append('Quick Sort')
+            exeTime.append(end_time - start_time)
 
         if checkRS.get() == 1:
             ###### RADIX SORT ######
@@ -187,6 +202,9 @@ def analyze_algorithms():
 
             print("Sorted Array (Radix Sort):", sorted_arr)
             print(f"Execution time FOR RADIX SORT: {end_time - start_time:.6f} seconds")
+
+            algorithms.append('Radix Sort')
+            exeTime.append(end_time - start_time)
 
         if checkLS.get() == 1:
             ###### LINEAR SEARCH ######
@@ -201,5 +219,11 @@ def analyze_algorithms():
             print(f"The number was {T} found at the index {result}")
             print(f"Execution time FOR LINEAR SEARCH: {end_time - start_time:.6f} seconds")
 
+            algorithms.append('Linear Search')
+            exeTime.append(end_time - start_time)
+
+        # Displays bar plot given algorithm list is not empty
+        if algorithms:
+            AlgoVisual.plot_algorithm_comparison(algorithms, exeTime)
 
 root.mainloop()
