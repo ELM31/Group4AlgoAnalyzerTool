@@ -14,7 +14,8 @@ import AlgoVisual # This is the visualization file
 ##################
 root = Tk()
 root.title("ALGO ANALYZER TOOL")
-root.geometry("800x600")  # Adjusted size for better fit
+root.geometry("450x350")  # Adjusted size for better fit
+root.configure(bg='#140042')
 
 # Checks for which sorting algorithm will be used 
 checkBS = IntVar(value=0)
@@ -50,22 +51,66 @@ def generate_array():
 
         # Generate the array based on user inputs
         arr = [random.randint(min_value, max_value) for _ in range(num_values)]
-        print("Generated Array:", arr)
-        messagebox.showinfo("Array Generated", f"Array: {arr}")
-
+        
     except ValueError:
         messagebox.showerror("Input Error", "Please enter valid integer values.")
 
 # Create frames for layout
-algo_frame = Frame(root)
-input_frame = Frame(root)
+algo_frame = Frame(root, bg='#200067')
+input_frame = Frame(root, bg='#200067')
 
-algo_frame.grid(row=0, column=0, padx=20, pady=20, sticky="n")
-input_frame.grid(row=0, column=1, padx=20, pady=20, sticky="n")
+algo_frame.grid(row=0, column=1, padx=20, pady=20, sticky="n")
+input_frame.grid(row=0, column=0, padx=20, pady=20, sticky="n")
 
 # Label for Algo CheckBox
-algo_label = Label(algo_frame, text="Choose the Algorithms you'd like to compare", font=("Helvetica", 14))
+algo_label = Label(algo_frame, text="Choose the \nAlgorithms you'd \nlike to compare", font=("Fixedsys", 17), fg='#c1bec8',bg='#200067')
 algo_label.pack(pady=10)
+
+
+# Label and Entry for the number of values
+num_values_label = Label(input_frame, text="Number of Values:", fg='#c1bec8',bg='#200067',font=("Fixedsys", 17))
+num_values_label.pack(pady=10)
+num_values_entry = Entry(input_frame, bg='#6a6a6a', fg='#c1bec8', font ='Fixedsys' )
+num_values_entry.pack(pady=5)
+
+# Label and Entry for minimum value
+min_value_label = Label(input_frame, text="Minimum Value:", fg='#c1bec8',bg='#200067',font=("Fixedsys", 17))
+min_value_label.pack(pady=10)
+min_value_entry = Entry(input_frame, bg='#6a6a6a', fg='#c1bec8', font ='Fixedsys' )
+min_value_entry.pack(pady=5)
+
+# Label and Entry for maximum value
+max_value_label = Label(input_frame, text="Maximum Value:", fg='#c1bec8',bg='#200067',font=("Fixedsys", 17))
+max_value_label.pack(pady=10)
+max_value_entry = Entry(input_frame, bg='#6a6a6a', fg='#c1bec8', font ='Fixedsys' )
+max_value_entry.pack(pady=5)
+
+# Button to generate the array
+generate_button = Button(input_frame,
+                          text="Generate Array",
+                            command=generate_array,
+                            activebackground="blue",
+                            activeforeground="white",
+                            anchor="center",
+                            bd=3,
+                            bg="#200067",
+                            cursor="hand2",
+                            disabledforeground="gray",
+                            fg="#c1bec8",
+                            font=("Fixedsys", 17),
+                            height=2,
+                            highlightbackground="black",
+                            highlightcolor="green",
+                            highlightthickness=2,
+                            justify="left",
+                            overrelief="raised",
+                            padx=10,
+                            pady=5,
+                            width=15,
+                            wraplength=100
+                         )
+generate_button.pack(pady=20)
+
 
 # Create IntVars for checkbox
 var1 = IntVar()
@@ -75,19 +120,56 @@ var4 = IntVar()
 var5 = IntVar()
 
 # Create checkboxes for the IntVar()
-check1 = Checkbutton(algo_frame, text="Bubble Sort", variable=var1, onvalue=1, offvalue=0, command=lambda: update_check(var1, checkBS))
+check1 = Checkbutton(algo_frame, text="Bubble Sort", 
+                     variable=var1, onvalue=1, 
+                     offvalue=0, 
+                     command=lambda: update_check(var1, checkBS), 
+                     fg='#c1bec8'
+                     ,bg='#200067'
+                     , font ='Fixedsys')
 check1.pack(anchor="w")
 
-check2 = Checkbutton(algo_frame, text="Merge Sort", variable=var2, onvalue=1, offvalue=0, command=lambda: update_check(var2, checkMS))
+check2 = Checkbutton(algo_frame, 
+                     text="Merge Sort", 
+                     variable=var2, 
+                     onvalue=1, 
+                     offvalue=0, 
+                     command=lambda: update_check(var2, checkMS), 
+                     fg='#c1bec8',
+                     bg='#200067',
+                     font='Fixedsys')
 check2.pack(anchor="w")
 
-check3 = Checkbutton(algo_frame, text="Quick Sort", variable=var3, onvalue=1, offvalue=0, command=lambda: update_check(var3, checkQS))
+check3 = Checkbutton(algo_frame, 
+                     text="Quick Sort", 
+                     variable=var3, 
+                     onvalue=1, 
+                     offvalue=0, 
+                     command=lambda: update_check(var3, checkQS), 
+                     fg='#c1bec8',bg='#200067',
+                     font='Fixedsys')
 check3.pack(anchor="w")
 
-check4 = Checkbutton(algo_frame, text="Radix Sort", variable=var4, onvalue=1, offvalue=0, command=lambda: update_check(var4, checkRS))
+check4 = Checkbutton(algo_frame, 
+                     text="Radix Sort", 
+                     variable=var4, 
+                     onvalue=1, 
+                     offvalue=0, 
+                     command=lambda: update_check(var4, checkRS), 
+                     fg='#c1bec8',
+                     bg='#200067',
+                     font='Fixedsys')
 check4.pack(anchor="w")
 
-check5 = Checkbutton(algo_frame, text="Linear Search", variable=var5, onvalue=1, offvalue=0, command=lambda: update_check(var5, checkLS))
+check5 = Checkbutton(algo_frame, 
+                     text="Linear Search", 
+                     variable=var5, 
+                     onvalue=1, 
+                     offvalue=0, 
+                     command=lambda: update_check(var5, checkLS), 
+                     fg='#c1bec8',
+                     bg='#200067',
+                     font='Fixedsys')
 check5.pack(anchor="w")
 
 button = Button(algo_frame,
@@ -97,11 +179,11 @@ button = Button(algo_frame,
                 activeforeground="white",
                 anchor="center",
                 bd=3,
-                bg="lightgray",
+                bg="#200067",
                 cursor="hand2",
                 disabledforeground="gray",
-                fg="black",
-                font=("Arial", 12),
+                fg="#c1bec8",
+                font=("Fixedsys", 17),
                 height=2,
                 highlightbackground="black",
                 highlightcolor="green",
@@ -113,32 +195,7 @@ button = Button(algo_frame,
                 width=15,
                 wraplength=100)
 
-button.pack(pady=20)
-
-# Label and Entry for the number of values
-num_values_label = Label(input_frame, text="Number of Values:")
-num_values_label.pack(pady=10)
-num_values_entry = Entry(input_frame)
-num_values_entry.pack(pady=5)
-
-# Label and Entry for minimum value
-min_value_label = Label(input_frame, text="Minimum Value:")
-min_value_label.pack(pady=10)
-min_value_entry = Entry(input_frame)
-min_value_entry.pack(pady=5)
-
-# Label and Entry for maximum value
-max_value_label = Label(input_frame, text="Maximum Value:")
-max_value_label.pack(pady=10)
-max_value_entry = Entry(input_frame)
-max_value_entry.pack(pady=5)
-
-# Button to generate the array
-generate_button = Button(input_frame, text="Generate Array", command=generate_array)
-generate_button.pack(pady=20)
-
-# Introduction to the program 
-print("Hello welcome to Algorithm Analyzer Tool")
+button.pack(pady = 20, side ='left')
 
 
 ####################
