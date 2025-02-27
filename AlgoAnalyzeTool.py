@@ -68,28 +68,48 @@ algo_label.pack(pady=10)
 
 
 # Label and Entry for the number of values
-num_values_label = Label(input_frame, text="Number of Values:", fg='#c1bec8',bg='#200067',font=("Fixedsys", 17))
+num_values_label = Label(input_frame, 
+                         text="Number of Values:", 
+                         fg='#c1bec8',bg='#200067',
+                         font=("Fixedsys", 17))
 num_values_label.pack(pady=10)
-num_values_entry = Entry(input_frame, bg='#6a6a6a', fg='#c1bec8', font ='Fixedsys' )
+num_values_entry = Entry(input_frame, 
+                         bg='#6a6a6a', 
+                         fg='#c1bec8', 
+                         font ='Fixedsys' )
 num_values_entry.pack(pady=5)
 
 # Label and Entry for minimum value
-min_value_label = Label(input_frame, text="Minimum Value:", fg='#c1bec8',bg='#200067',font=("Fixedsys", 17))
+min_value_label = Label(input_frame, 
+                        text="Minimum Value:", 
+                        fg='#c1bec8', 
+                        bg='#200067'
+                        ,font=("Fixedsys", 17))
 min_value_label.pack(pady=10)
-min_value_entry = Entry(input_frame, bg='#6a6a6a', fg='#c1bec8', font ='Fixedsys' )
+min_value_entry = Entry(input_frame, 
+                        bg='#6a6a6a', 
+                        fg='#c1bec8', 
+                        font ='Fixedsys' )
 min_value_entry.pack(pady=5)
 
 # Label and Entry for maximum value
-max_value_label = Label(input_frame, text="Maximum Value:", fg='#c1bec8',bg='#200067',font=("Fixedsys", 17))
+max_value_label = Label(input_frame, 
+                        text="Maximum Value:", 
+                        fg='#c1bec8',
+                        bg='#200067',
+                        font=("Fixedsys", 17))
 max_value_label.pack(pady=10)
-max_value_entry = Entry(input_frame, bg='#6a6a6a', fg='#c1bec8', font ='Fixedsys' )
+max_value_entry = Entry(input_frame, 
+                        bg='#6a6a6a', 
+                        fg='#c1bec8', 
+                        font ='Fixedsys' )
 max_value_entry.pack(pady=5)
 
 # Button to generate the array
 generate_button = Button(input_frame,
                           text="Generate Array",
                             command=generate_array,
-                            activebackground="blue",
+                            activebackground="#6a6a6a",
                             activeforeground="white",
                             anchor="center",
                             bd=3,
@@ -124,9 +144,11 @@ check1 = Checkbutton(algo_frame, text="Bubble Sort",
                      variable=var1, onvalue=1, 
                      offvalue=0, 
                      command=lambda: update_check(var1, checkBS), 
-                     fg='#c1bec8'
-                     ,bg='#200067'
-                     , font ='Fixedsys')
+                     fg='#c1bec8',
+                     bg='#200067',
+                     font ='Fixedsys',
+                     activebackground='#6a6a6a',
+                     activeforeground='#ff00e3')
 check1.pack(anchor="w")
 
 check2 = Checkbutton(algo_frame, 
@@ -137,7 +159,9 @@ check2 = Checkbutton(algo_frame,
                      command=lambda: update_check(var2, checkMS), 
                      fg='#c1bec8',
                      bg='#200067',
-                     font='Fixedsys')
+                     font='Fixedsys',
+                     activebackground='#6a6a6a',
+                     activeforeground='#ff00e3')
 check2.pack(anchor="w")
 
 check3 = Checkbutton(algo_frame, 
@@ -147,7 +171,9 @@ check3 = Checkbutton(algo_frame,
                      offvalue=0, 
                      command=lambda: update_check(var3, checkQS), 
                      fg='#c1bec8',bg='#200067',
-                     font='Fixedsys')
+                     font='Fixedsys',
+                     activebackground='#6a6a6a',
+                     activeforeground='#ff00e3')
 check3.pack(anchor="w")
 
 check4 = Checkbutton(algo_frame, 
@@ -158,7 +184,9 @@ check4 = Checkbutton(algo_frame,
                      command=lambda: update_check(var4, checkRS), 
                      fg='#c1bec8',
                      bg='#200067',
-                     font='Fixedsys')
+                     font='Fixedsys',
+                     activebackground='#6a6a6a',
+                     activeforeground='#ff00e3')
 check4.pack(anchor="w")
 
 check5 = Checkbutton(algo_frame, 
@@ -169,13 +197,15 @@ check5 = Checkbutton(algo_frame,
                      command=lambda: update_check(var5, checkLS), 
                      fg='#c1bec8',
                      bg='#200067',
-                     font='Fixedsys')
+                     font='Fixedsys',
+                     activebackground='#6a6a6a',
+                     activeforeground='#ff00e3')
 check5.pack(anchor="w")
 
 button = Button(algo_frame,
                 text="Analyze",
                 command=button_clicked,
-                activebackground="blue",
+                activebackground="#6a6a6a",
                 activeforeground="white",
                 anchor="center",
                 bd=3,
