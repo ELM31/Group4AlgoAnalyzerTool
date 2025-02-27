@@ -14,7 +14,7 @@ import AlgoVisual # This is the visualization file
 ##################
 root = Tk()
 root.title("ALGO ANALYZER TOOL")
-root.geometry("450x350")  # Adjusted size for better fit
+root.geometry("640x420")  # Adjusted size for better fit
 root.configure(bg='#140042')
 
 # Checks for which sorting algorithm will be used 
@@ -127,7 +127,7 @@ generate_button = Button(input_frame,
                             padx=10,
                             pady=5,
                             width=15,
-                            wraplength=100
+                            wraplength=200
                          )
 generate_button.pack(pady=20)
 
@@ -223,7 +223,7 @@ button = Button(algo_frame,
                 padx=10,
                 pady=5,
                 width=15,
-                wraplength=100)
+                wraplength=200)
 
 button.pack(pady = 20, side ='left')
 
