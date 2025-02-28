@@ -16,7 +16,7 @@ import WindowSet # Sets tool window dimensions off of current screen
 root = Tk()
 root.title("ALGO ANALYZER TOOL")
 
-WindowSet.setScreen(root, wRatio = 0.5, hRatio = 0.5) # Dynamically sets window size for program
+WindowSet.setScreen(root, wRatio = 0.4, hRatio = 0.4) # Dynamically sets window size for program
 root.configure(bg='#140042')
 
 # Checks for which sorting algorithm will be used 
@@ -65,12 +65,16 @@ def generate_array():
 algo_frame = Frame(root, bg='#200067')
 input_frame = Frame(root, bg='#200067')
 
-algo_frame.grid(row=0, column=1, padx=20, pady=20, sticky="n")
-input_frame.grid(row=0, column=0, padx=20, pady=20, sticky="n")
+algo_frame.grid(row=0, column=1, padx=20, pady=20, sticky="nsew")
+input_frame.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
 
 # Label for Algo CheckBox
 algo_label = Label(algo_frame, text="Choose the \nAlgorithms you'd \nlike to compare", font=("Fixedsys", 17), fg='#c1bec8',bg='#200067')
 algo_label.pack(pady=10)
+
+root.grid_columnconfigure(0, weight=1)
+root.grid_columnconfigure(1, weight=1)
+root.grid_rowconfigure(0, weight=1)
 
 
 # Label and Entry for the number of values
@@ -231,7 +235,7 @@ button = Button(algo_frame,
                 width=15,
                 wraplength=200)
 
-button.pack(pady = 20, side ='left')
+button.pack(pady = 20)
 
 
 ####################
