@@ -214,6 +214,16 @@ check5 = Checkbutton(algo_frame,
                      activeforeground='#ff00e3')
 check5.pack(anchor="w")
 
+# Create a text entry for T next to the Linear Search checkbox
+t_value_entry = Entry(algo_frame,
+      width=5,
+      bg='#6a6a6a',
+      fg='#c1bec8',
+      font='Fixedsys')
+
+# Use grid to place the checkbox and entry side by side
+t_value_entry.pack(anchor="w", padx=25, pady=5)
+
 button = Button(algo_frame,
                 text="Analyze",
                 command=button_clicked,
@@ -245,7 +255,7 @@ button.pack(pady = 20)
 ####################
 def analyze_algorithms():
     global arr  # Access the global arr variable
-    if checkGo.get() == 1 and arr:  # Ensure arr is not empty
+    if checkGo.get() == 1 and arr:  # Ensure array is not empty
         # Individual arrays for each sorting algorithm
         arrBS = arr[:]  # Bubble sort
         arrMS = arr[:]  # Merge sort
@@ -308,7 +318,12 @@ def analyze_algorithms():
         if checkLS.get() == 1:
             ###### LINEAR SEARCH ######
             L = arrLS[:]
-            T = arrLS[random.randint(0, len(arrLS) - 1)]
+            t_value = t_value_entry.get()  # Get the user input for T
+            
+            if t_value.isdigit():
+                T = int(t_value)
+            else:
+                T = L[random.randint(0, len(L) - 1)]
 
             # Call LinearSearch function
             start_time = time.time()
