@@ -55,6 +55,8 @@ def generate_array():
 
         # Generate the array based on user inputs
         arr = [random.randint(min_value, max_value) for _ in range(num_values)]
+        #Print out array 
+        print(f"Unsorted array generated: {arr} ")
         # Store the user input into variable to display onto graph title
         numElem = num_values
         
@@ -306,7 +308,7 @@ def analyze_algorithms():
         if checkLS.get() == 1:
             ###### LINEAR SEARCH ######
             L = arrLS[:]
-            T = random.randint(0, len(arr) - 1)
+            T = arrLS[random.randint(0, len(arrLS) - 1)]
 
             # Call LinearSearch function
             start_time = time.time()
