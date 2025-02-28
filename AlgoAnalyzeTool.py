@@ -5,16 +5,18 @@ import radixSort
 import linearSearchAlgoAdv
 import time
 import random
-from tkinter import *
-from tkinter import messagebox
+from tkinter import * # For GUI
+from tkinter import messagebox # For message pop ups specifically
 import AlgoVisual # This is the visualization file
+import WindowSet # Sets tool window dimensions off of current screen
 
 ##################
 #####   GUI  #####
 ##################
 root = Tk()
 root.title("ALGO ANALYZER TOOL")
-root.geometry("450x350")  # Adjusted size for better fit
+
+WindowSet.setScreen(root, wRatio = 0.5, hRatio = 0.5) # Dynamically sets window size for program
 root.configure(bg='#140042')
 
 # Checks for which sorting algorithm will be used 
