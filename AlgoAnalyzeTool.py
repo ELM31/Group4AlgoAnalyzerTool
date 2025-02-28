@@ -14,7 +14,7 @@ import AlgoVisual # This is the visualization file
 ##################
 root = Tk()
 root.title("ALGO ANALYZER TOOL")
-root.geometry("640x420")  # Adjusted size for better fit
+root.geometry("450x350")  # Adjusted size for better fit
 root.configure(bg='#140042')
 
 # Checks for which sorting algorithm will be used 
@@ -25,7 +25,7 @@ checkRS = IntVar(value=0)
 checkLS = IntVar(value=0)
 checkGo = IntVar(value=0)
 
-# Global array variable
+# Global array variables
 arr = []
 numElem = 0
 
