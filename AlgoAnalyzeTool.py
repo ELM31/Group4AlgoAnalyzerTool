@@ -27,6 +27,7 @@ checkGo = IntVar(value=0)
 
 # Global array variable
 arr = []
+numElem = 0
 
 def update_check(var, check):
     if var.get() == 1:
@@ -40,6 +41,7 @@ def button_clicked():
 
 def generate_array():
     global arr  # Declare arr as global to modify it
+    global numElem # Declare numElem as global to modify it
     try:
         num_values = int(num_values_entry.get())
         min_value = int(min_value_entry.get())
@@ -51,9 +53,11 @@ def generate_array():
 
         # Generate the array based on user inputs
         arr = [random.randint(min_value, max_value) for _ in range(num_values)]
+        # Store the user input into variable to display onto graph title
+        numElem = num_values
         
     except ValueError:
-        messagebox.showerror("Input Error", "Please enter valid integer values.")
+        messagebox.showerror("Input Error", "Please enter valid integer values.") 
 
 # Create frames for layout
 algo_frame = Frame(root, bg='#200067')
@@ -311,6 +315,6 @@ def analyze_algorithms():
 
         # Displays bar plot given algorithm list is not empty
         if algorithms:
-            AlgoVisual.plot_algorithm_comparison(algorithms, exeTime)
+            AlgoVisual.plot_algorithm_comparison(algorithms, exeTime, numElem)
 
 root.mainloop()
